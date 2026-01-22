@@ -3,6 +3,6 @@ public class Listie {
         String logo = "Hello! I'm Listie!" +
                 "\nWhat can I do for you?" +
                 "\nBye. Hope to see you again soon!";
-        System.out.println("Hello from\n" + logo);
+        System.out.println(logo);
     }
 }
