@@ -1,8 +1,17 @@
+import java.util.Scanner;
+
 public class Listie {
     public static void main(String[] args) {
         String logo = "Hello! I'm Listie!" +
-                "\nWhat can I do for you?" +
-                "\nBye. Hope to see you again soon!";
+                "\nWhat can I do for you?";
         System.out.println(logo);
+        while (true){
+            String userinput = new Scanner(System.in).nextLine();
+            System.out.println(userinput);
+            if (userinput.equals("bye")) {
+                break;
+            }
+        }
+        System.out.println("Bye. Hope to see you again soon!");
     }
 }
