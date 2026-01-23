@@ -1,3 +1,6 @@
+todo
+deadline return book /by
+event project meeting /from /to
 todo borrow book
 list
 mark 1
