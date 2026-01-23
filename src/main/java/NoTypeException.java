@@ -1,4 +1,5 @@
-package PACKAGE_NAME;
-
-public class NoTypeException {
+public class NoTypeException extends Exception{
+    public NoTypeException () {
+        super("You need to specify a type of task to add.");
+    }
 }
