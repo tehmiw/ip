@@ -5,6 +5,10 @@ public class ListItem {
         this.desc = desc;
         this.done = false;
     }
+    public ListItem(String desc, boolean done){
+        this.desc = desc;
+        this.done = done;
+    }
     public String getDesc() {
         return this.desc;
     }
@@ -21,5 +25,8 @@ public class ListItem {
         return String.format("[%s] %s",
                 this.isDone() ? "X" : " ",
                 this.getDesc());
+    }
+    public char getType() {
+        return 'a';
     }
 }

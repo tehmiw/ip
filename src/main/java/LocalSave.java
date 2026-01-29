@@ -1,0 +1,92 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.IOException;
+
+public class LocalSave {
+    private String filePath;
+    private ArrayList<ListItem> listItems = new ArrayList<>();
+    public LocalSave(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public void updateFile(ArrayList<ListItem> listItems) throws IOException {
+        this.listItems = listItems;
+        FileWriter fw = new FileWriter(filePath);
+        String fileContent = "";
+        for (int i = 0; i < this.listItems.size(); i++) {
+            ListItem listItem = this.listItems.get(i);
+            char taskType = listItem.getType();
+            boolean taskDone = listItem.isDone();
+            String taskDoneString = taskDone ? "1" : "0";
+            String currentline = "";
+            String desc = listItem.getDesc();
+            switch (taskType) {
+            case 't':
+                currentline = "t" + taskDoneString + "|" + desc;
+                break;
+            case 'd':
+                Deadline deadline = (Deadline) listItem;
+                String by = deadline.getBy();
+                currentline = "d" + taskDoneString + "|" + desc + "|" + by;
+                break;
+            case 'e':
+                Event event = (Event) listItem;
+                String from = event.getFrom();
+                String to = event.getTo();
+                currentline = "e" + taskDoneString + "|" + desc + "|" + from + "|" + to;
+                break;
+            }
+            if (i != listItems.size() - 1) {
+                currentline += "\n";
+            }
+            fileContent += currentline;
+        }
+        fw.write(fileContent);
+        fw.close();
+    }
+
+    public ArrayList<ListItem> loadItems() throws FileNotFoundException{
+        this.listItems.clear();
+        File f = new File(this.filePath);
+        if (!f.exists()) {
+            return new ArrayList<ListItem>();
+        }
+        Scanner s = new Scanner(f);
+        while (s.hasNext()) {
+            String toBeAdded = s.nextLine();
+            int firstLine = toBeAdded.indexOf("|");
+            String details = toBeAdded.substring(firstLine + 1);
+            char taskType = toBeAdded.charAt(0);
+            char done = toBeAdded.charAt(1);
+            boolean doneTask = done == '1' ? true : false;
+            switch (taskType) {
+            case 't':
+                ToDo toDo = new ToDo(details, doneTask);
+                this.listItems.add(toDo);
+                break;
+            case 'd':
+                int nextLine = details.indexOf("|");
+                String descD = details.substring(0, nextLine);
+                String dateD = details.substring(nextLine + 1);
+                Deadline deadline = new Deadline(descD, doneTask, dateD);
+                this.listItems.add(deadline);
+                break;
+            case 'e':
+                int nextLineE = details.indexOf("|");
+                String descE = details.substring(0, nextLineE);
+                String dates = details.substring(nextLineE + 1);
+                int lastLine = dates.indexOf("|");
+                String startDate = dates.substring(0, lastLine);
+                String endDate = dates.substring(lastLine + 1);
+                Event event = new Event(descE, doneTask, startDate, endDate);
+                this.listItems.add(event);
+                break;
+            }
+        }
+        return this.listItems;
+    }
+
+}
