@@ -1,9 +1,18 @@
+import javax.imageio.IIOException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Listie {
     public static void main(String[] args) {
+        LocalSave localSave = new LocalSave("./Listie.txt");;
         ArrayList<ListItem> listitems = new ArrayList<>();
+        try {
+            listitems = localSave.loadItems();
+        } catch (FileNotFoundException e) {
+
+        }
         String logo = "Hello! I'm Listie!\n" +
                 "What can I do for you?";
         System.out.println(logo);
@@ -90,6 +99,11 @@ public class Listie {
                         break;
                     case "bye":
                         System.out.println("Bye. Hope to see you again soon!");
+                        try {
+                            localSave.updateFile(listitems);
+                        } catch (IOException e) {
+                            System.out.println("IOexception");
+                        }
                         return;
                     case "list":
                         System.out.println("Here are the tasks in your list:");
