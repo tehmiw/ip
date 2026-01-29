@@ -29,13 +29,13 @@ public class LocalSave {
                 break;
             case 'd':
                 Deadline deadline = (Deadline) listItem;
-                String by = deadline.getBy();
+                String by = deadline.getByFormatted();
                 currentline = "d" + taskDoneString + "|" + desc + "|" + by;
                 break;
             case 'e':
                 Event event = (Event) listItem;
-                String from = event.getFrom();
-                String to = event.getTo();
+                String from = event.getFromFormatted();
+                String to = event.getToFormatted();
                 currentline = "e" + taskDoneString + "|" + desc + "|" + from + "|" + to;
                 break;
             }
