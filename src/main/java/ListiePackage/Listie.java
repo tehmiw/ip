@@ -1,10 +1,11 @@
+package ListiePackage;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Listie {
     public static void main(String[] args) {
-        Storage storage = new Storage("./Listie.txt");;
+        Storage storage = new Storage("./Listie.txt");
         TaskList listItems = new TaskList();
         Ui ui = new Ui();
         try {
