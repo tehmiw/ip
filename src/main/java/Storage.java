@@ -1,18 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.IOException;
 
-public class LocalSave {
+public class Storage {
     private String filePath;
-    private ArrayList<ListItem> listItems = new ArrayList<>();
-    public LocalSave(String filePath) {
+    private TaskList listItems = new TaskList();
+    public Storage(String filePath) {
         this.filePath = filePath;
     }
 
-    public void updateFile(ArrayList<ListItem> listItems) throws IOException {
+    public void updateFile(TaskList listItems) throws IOException {
         this.listItems = listItems;
         FileWriter fw = new FileWriter(filePath);
         String fileContent = "";
@@ -48,11 +47,11 @@ public class LocalSave {
         fw.close();
     }
 
-    public ArrayList<ListItem> loadItems() throws FileNotFoundException{
+    public TaskList loadItems() throws FileNotFoundException{
         this.listItems.clear();
         File f = new File(this.filePath);
         if (!f.exists()) {
-            return new ArrayList<ListItem>();
+            return new TaskList();
         }
         Scanner s = new Scanner(f);
         while (s.hasNext()) {
