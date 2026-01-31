@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 import java.time.LocalDate;
 
@@ -39,8 +39,10 @@ public class Event extends ListItem {
         this.toLocalDate = LocalDate.parse(this.to);
         LocalDate a = this.fromLocalDate;
         LocalDate b = this.toLocalDate;
-        this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " " +  Integer.toString(a.getYear());
-        this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " " +  Integer.toString(b.getYear());
+        this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
+        this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " "
+                +  Integer.toString(b.getYear());
     }
     public Event(String desc, boolean done, String from, String to) {
         super(desc, done);
@@ -50,8 +52,10 @@ public class Event extends ListItem {
         this.toLocalDate = LocalDate.parse(this.to);
         LocalDate a = this.fromLocalDate;
         LocalDate b = this.toLocalDate;
-        this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " " +  Integer.toString(a.getYear());
-        this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " " +  Integer.toString(b.getYear());
+        this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
+        this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " "
+                +  Integer.toString(b.getYear());
     }
 
 }

@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 public class ToDo extends ListItem {
     @Override

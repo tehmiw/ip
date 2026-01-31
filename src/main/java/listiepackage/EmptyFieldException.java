@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 public class EmptyFieldException extends Exception {
     public EmptyFieldException(String itemtype) {

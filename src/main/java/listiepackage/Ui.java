@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 import java.util.Scanner;
 

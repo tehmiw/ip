@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 public class ListItem {
     private String desc;

@@ -1,4 +1,4 @@
-package ListiePackage;
+package listiepackage;
 
 import java.time.LocalDate;
 
@@ -26,13 +26,15 @@ public class Deadline extends ListItem {
         this.by = by;
         this.byLocalDate = LocalDate.parse(this.by);
         LocalDate a = this.byLocalDate;
-        this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " " +  Integer.toString(a.getYear());
+        this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
     }
     public Deadline(String desc, boolean done, String by) {
         super(desc, done);
         this.by = by;
         this.byLocalDate = LocalDate.parse(this.by);
         LocalDate a = this.byLocalDate;
-        this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " " +  Integer.toString(a.getYear());
+        this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
     }
 }
