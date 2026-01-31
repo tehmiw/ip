@@ -59,6 +59,10 @@ public class Listie {
                 case "list":
                     ui.showList(listItems);
                     break;
+                case "find":
+                    String keyword = Parser.getKeyword(userInput);
+                    ui.showFilteredList(keyword, listItems);
+                    break;
                 default:
                     throw new NoTypeException();
                 }

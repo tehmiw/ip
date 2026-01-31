@@ -77,6 +77,14 @@ public class Parser {
         return new Event(desc, from, to);
     }
 
+    public static String getKeyword(String input) throws EmptyFieldException {
+        int firstSpace = input.indexOf(" ");
+        if (firstSpace == -1) {
+            throw new EmptyFieldException("find");
+        }
+        return input.substring(firstSpace + 1).trim();
+    }
+
     public static int parseIndex(String input) {
         return Integer.parseInt(input.split(" ")[1]) - 1;
     }

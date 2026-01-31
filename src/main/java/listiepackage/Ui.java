@@ -40,6 +40,17 @@ public class Ui {
         System.out.println("  " + task.getLine());
     }
 
+    public void showFilteredList(String keyword, TaskList taskList) {
+        TaskList filteredList = new TaskList();
+        for (int i = 0; i < taskList.size(); i++) {
+            ListItem current = taskList.get(i);
+            if (current.getDesc().contains(keyword)) {
+                filteredList.add(current);
+            }
+        }
+        showList(filteredList);
+    }
+
     public void showList(TaskList taskList) {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < taskList.size(); i++) {
