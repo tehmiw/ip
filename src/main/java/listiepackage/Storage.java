@@ -1,3 +1,6 @@
+/**
+ * The `Storage` class helps manage local storage of data.
+ */
 package listiepackage;
 
 import java.io.File;

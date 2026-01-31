@@ -1,3 +1,6 @@
+/**
+ * The `TaskList` class helps manage the list of Tasks.
+ */
 package listiepackage;
 
 import java.util.ArrayList;

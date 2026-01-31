@@ -1,3 +1,6 @@
+/**
+ * The `Listie` class represents and carries out the main functionality of the program.
+ */
 package listiepackage;
 
 import java.io.FileNotFoundException;

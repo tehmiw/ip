@@ -1,3 +1,6 @@
+/**
+ * The `Ui` class helps manage user input and output.
+ */
 package listiepackage;
 
 import java.util.Scanner;

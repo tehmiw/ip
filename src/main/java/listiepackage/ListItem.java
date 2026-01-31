@@ -1,3 +1,6 @@
+/**
+ * The `ListItem` class captures a Task.
+ */
 package listiepackage;
 
 public class ListItem {

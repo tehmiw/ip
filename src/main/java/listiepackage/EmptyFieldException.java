@@ -1,3 +1,6 @@
+/**
+ * The `EmptyFieldException` class captures a exception caused by unspecified fields.
+ */
 package listiepackage;
 
 public class EmptyFieldException extends Exception {

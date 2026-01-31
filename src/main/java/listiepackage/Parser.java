@@ -1,11 +1,28 @@
+/**
+ * The `Parser` class helps parse user inputs.
+ */
 package listiepackage;
 
 public class Parser {
 
+    /**
+     * Returns command in user input
+     *
+     * @param input User input
+     * @return command in user input
+     */
     public static String getCommand(String input) {
         return input.split(" ")[0];
     }
 
+    /**
+     * Returns description of ToDo
+     * If the no whitespace, EmptyFieldException is thrown
+     *
+     * @param input User input
+     * @return description of ToDo
+     * @throws EmptyFieldException If no whitespace.
+     */
     public static String getTodoDescription(String input) throws EmptyFieldException {
         int firstSpace = input.indexOf(" ");
         if (firstSpace == -1) {
@@ -14,6 +31,14 @@ public class Parser {
         return input.substring(firstSpace + 1).trim();
     }
 
+    /**
+     * Returns Deadline object
+     * If the no whitespace, EmptyFieldException is thrown
+     *
+     * @param input User input
+     * @return Deadline object
+     * @throws EmptyFieldException If no whitespace.
+     */
     public static Deadline parseDeadline(String input) throws EmptyFieldException {
         int byPos = input.indexOf("/by ");
         int firstSpace = input.indexOf(" ");
@@ -28,6 +53,14 @@ public class Parser {
         return new Deadline(desc, by);
     }
 
+    /**
+     * Returns Event object
+     * If the no whitespace, EmptyFieldException is thrown
+     *
+     * @param input User input
+     * @return Event object
+     * @throws EmptyFieldException If no whitespace.
+     */
     public static Event parseEvent(String input) throws EmptyFieldException {
         int fromPos = input.indexOf("/from ");
         int toPos = input.indexOf("/to ");
