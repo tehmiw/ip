@@ -27,7 +27,7 @@ public class MainWindow extends AnchorPane {
     private ListieAgent listie;
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image listieImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    private Image listieImage = new Image(this.getClass().getResourceAsStream("/images/DaListie.png"));
 
     private Storage storage = new Storage("./Listie.txt");
     private TaskList listItems = new TaskList();
@@ -42,7 +42,7 @@ public class MainWindow extends AnchorPane {
         }
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
         dialogContainer.getChildren().addAll(
-                DialogBox.getListieDialog("hello", listieImage)
+                DialogBox.getListieDialog("Hello! I'm Listie!\nWhat can I do for you?", listieImage)
         );
     }
 
