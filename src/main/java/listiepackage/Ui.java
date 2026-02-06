@@ -14,6 +14,9 @@ public class Ui {
         System.out.println("What can I do for you?");
     }
 
+    public String getWelcome() {
+        return "Hello! I'm Listie!\nWhat can I do for you?";
+    }
     public String readCommand() {
         return sc.nextLine();
     }
@@ -24,10 +27,22 @@ public class Ui {
         System.out.println("Now you have " + totalTasks + " tasks in the list.");
     }
 
+    public String getTaskAdded(ListItem task, int totalTasks) {
+        return "Got it. I've added this task:"
+                + "\n  " + task.getLine()
+                + "\nNow you have " + totalTasks + " tasks in the list.";
+    }
+
     public void showTaskDeleted(ListItem task, int totalTasks) {
         System.out.println("Noted. I've removed this task:");
         System.out.println("  " + task.getLine());
         System.out.println("Now you have " + totalTasks + " tasks in the list.");
+    }
+
+    public String getTaskDeleted(ListItem task, int totalTasks) {
+        return "Noted. I've removed this task:"
+                + "\n  " + task.getLine()
+                + "\nNow you have " + totalTasks + " tasks in the list.";
     }
 
     public void showTaskMarked(ListItem task) {
@@ -35,9 +50,37 @@ public class Ui {
         System.out.println("  " + task.getLine());
     }
 
+    public String getTaskMarked(ListItem task) {
+        return "Nice! I've marked this task as done:"
+                + "\n  " + task.getLine();
+    }
+
     public void showTaskUnmarked(ListItem task) {
         System.out.println("OK, I've marked this task as not done yet:");
         System.out.println("  " + task.getLine());
+    }
+
+    public String getTaskUnmarked(ListItem task) {
+        return "OK, I've marked this task as not done yet:"
+                + "\n  " + task.getLine();
+    }
+    public String getFilteredList(String keyword, TaskList taskList) {
+        TaskList filteredList = new TaskList();
+        for (int i = 0; i < taskList.size(); i++) {
+            ListItem current = taskList.get(i);
+            if (current.getDesc().contains(keyword)) {
+                filteredList.add(current);
+            }
+        }
+        return getList(filteredList);
+    }
+
+    public String getList(TaskList taskList) {
+        String listString = "Here are the tasks in your list:\n";
+        for (int i = 0; i < taskList.size(); i++) {
+            listString += (i + 1) + "." + taskList.get(i).getLine() + "\n";
+        }
+        return listString;
     }
 
     public void showFilteredList(String keyword, TaskList taskList) {
@@ -62,7 +105,15 @@ public class Ui {
         System.out.println(message);
     }
 
+    public String getError(String message) {
+        return message;
+    }
+
     public void showExit() {
         System.out.println("Bye. Hope to see you again soon!");
+    }
+
+    public String getExit() {
+        return "Bye. Hope to see you again soon!";
     }
 }
