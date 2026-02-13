@@ -33,6 +33,34 @@ public class ListieAgent {
                 listItems.add(itemAddedE);
                 response += ui.getTaskAdded(itemAddedE, listItems.size());
                 break;
+            case "updateDesc":
+                int updateIndex = Parser.parseIndex(userInput);
+                ListItem updateTarget = listItems.get(updateIndex);
+                String newDesc = Parser.getUpdateDetails(userInput);
+                updateTarget.updateDesc(newDesc);
+                response += ui.getTaskUpdated(updateTarget);
+                break;
+            case "updateBy":
+                int updateIndexB = Parser.parseIndex(userInput);
+                Deadline updateTargetB = (Deadline) listItems.get(updateIndexB);
+                String newBy = Parser.getUpdateDetails(userInput);
+                updateTargetB.updateBy(newBy);
+                response += ui.getTaskUpdated(updateTargetB);
+                break;
+            case "updateFrom":
+                int updateIndexF = Parser.parseIndex(userInput);
+                Event updateTargetF = (Event) listItems.get(updateIndexF);
+                String newFrom = Parser.getUpdateDetails(userInput);
+                updateTargetF.updateFrom(newFrom);
+                response += ui.getTaskUpdated(updateTargetF);
+                break;
+            case "updateTo":
+                int updateIndexT = Parser.parseIndex(userInput);
+                Event updateTargetT = (Event) listItems.get(updateIndexT);
+                String newTo = Parser.getUpdateDetails(userInput);
+                updateTargetT.updateTo(newTo);
+                response += ui.getTaskUpdated(updateTargetT);
+                break;
             case "delete":
                 int delIndex = Parser.parseIndex(userInput);
                 ListItem removed = listItems.remove(delIndex);

@@ -31,6 +31,20 @@ public class Parser {
         return input.substring(firstSpace + 1).trim();
     }
 
+    public static String getUpdateDetails(String input) throws EmptyFieldException {
+        int firstSpace = input.indexOf(" ");
+        if (firstSpace == -1) {
+            throw new EmptyFieldException("update");
+        }
+        String intermediateString = input.substring(firstSpace + 1).trim();
+        int nextSpace = intermediateString.indexOf(" ");
+        if (nextSpace == -1) {
+            throw new EmptyFieldException("update");
+        }
+        String details = intermediateString.substring(nextSpace + 1).trim();
+        return details;
+    }
+
     /**
      * Returns Deadline object
      * If the no whitespace, EmptyFieldException is thrown

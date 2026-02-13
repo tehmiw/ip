@@ -67,6 +67,20 @@ public class Event extends ListItem {
 
         return this.to;
     }
+    public void updateFrom(String from) {
+        this.from = from;
+        this.fromLocalDate = LocalDate.parse(this.from);
+        LocalDate a = this.fromLocalDate;
+        this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
+    }
+    public void updateTo(String to) {
+        this.to = to;
+        this.toLocalDate = LocalDate.parse(this.to);
+        LocalDate b = this.toLocalDate;
+        this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " "
+                +  Integer.toString(b.getYear());
+    }
     public Event(String desc, String from, String to) {
         super(desc);
         this.from = from;

@@ -44,6 +44,13 @@ public class Deadline extends ListItem {
     public String getByFormatted() {
         return this.by;
     }
+    public void updateBy(String by) {
+        this.by = by;
+        this.byLocalDate = LocalDate.parse(this.by);
+        LocalDate a = this.byLocalDate;
+        this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
+                +  Integer.toString(a.getYear());
+    }
     public Deadline(String desc, String by) {
         super(desc);
         this.by = by;

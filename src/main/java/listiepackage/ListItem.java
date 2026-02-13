@@ -26,6 +26,9 @@ public class ListItem {
     public boolean isDone() {
         return this.done;
     }
+    public void updateDesc(String desc) {
+        this.desc = desc;
+    }
     public String getLine() {
         return String.format("[%s] %s",
                 this.isDone() ? "X" : " ",
