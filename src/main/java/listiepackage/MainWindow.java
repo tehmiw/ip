@@ -38,7 +38,7 @@ public class MainWindow extends AnchorPane {
         try {
             listItems = storage.loadItems();
         } catch (FileNotFoundException e) {
-
+            listItems = new TaskList();
         }
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
         dialogContainer.getChildren().addAll(
