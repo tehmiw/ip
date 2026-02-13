@@ -25,28 +25,28 @@ public class Storage {
             char taskType = listItem.getType();
             boolean taskDone = listItem.isDone();
             String taskDoneString = taskDone ? "1" : "0";
-            String currentline = "";
+            String currentLine = "";
             String desc = listItem.getDesc();
             switch (taskType) {
             case 't':
-                currentline = "t" + taskDoneString + "|" + desc;
+                currentLine = "t" + taskDoneString + "|" + desc;
                 break;
             case 'd':
                 Deadline deadline = (Deadline) listItem;
                 String by = deadline.getByFormatted();
-                currentline = "d" + taskDoneString + "|" + desc + "|" + by;
+                currentLine = "d" + taskDoneString + "|" + desc + "|" + by;
                 break;
             case 'e':
                 Event event = (Event) listItem;
                 String from = event.getFromFormatted();
                 String to = event.getToFormatted();
-                currentline = "e" + taskDoneString + "|" + desc + "|" + from + "|" + to;
+                currentLine = "e" + taskDoneString + "|" + desc + "|" + from + "|" + to;
                 break;
             }
             if (i != listItems.size() - 1) {
-                currentline += "\n";
+                currentLine += "\n";
             }
-            fileContent += currentline;
+            fileContent += currentLine;
         }
         fw.write(fileContent);
         fw.close();

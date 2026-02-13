@@ -39,7 +39,7 @@ public class MainWindow extends AnchorPane {
             listItems = storage.loadItems();
             assert listItems != null : "Loaded TaskList should not be null";
         } catch (FileNotFoundException e) {
-
+            listItems = new TaskList();
         }
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
         dialogContainer.getChildren().addAll(
