@@ -37,6 +37,7 @@ public class MainWindow extends AnchorPane {
     public void initialize() {
         try {
             listItems = storage.loadItems();
+            assert listItems != null : "Loaded TaskList should not be null";
         } catch (FileNotFoundException e) {
             listItems = new TaskList();
         }
