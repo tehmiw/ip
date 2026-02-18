@@ -15,6 +15,9 @@ public class ListieAgent {
             String firstWord = Parser.getCommand(userInput);
             assert firstWord != null : "Parser.getCommand should not return null";
             switch (firstWord) {
+            case "help":
+                response += ui.getHelpMessage();
+                break;
             case "todo":
                 ToDo itemAddedT = new ToDo(Parser.getTodoDescription(userInput));
                 assert itemAddedT != null : "Created ToDo should not be null";
@@ -100,7 +103,7 @@ public class ListieAgent {
         } catch (IOException e) {
             response += "Saving error.";
         } catch (Exception e) {
-            response += "Unexpected error";
+            response += "Hmm I didn't quite catch that. Please check your formatting and logic!";
         }
         return response;
     }

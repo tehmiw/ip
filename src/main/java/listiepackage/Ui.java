@@ -21,6 +21,41 @@ public class Ui {
         return sc.nextLine();
     }
 
+    public String getHelpMessage() {
+        // long string used AI (chatGPT) for reformatting to limit line width
+        return "Here is a list of sample commands that you can use! "
+                + "The colon and everything after describes what it represents.\n"
+                + "\n"
+                + "- todo read book: adds a todo item with description "
+                + "'read book'\n"
+                + "- deadline return book /by 2025-10-15: adds a deadline item "
+                + "with description 'return book' and due date on 15 Oct 2025\n"
+                + "- event project meeting /from 2025-10-15 /to 2025-10-16: "
+                + "adds a event item with description 'project meeting' "
+                + "and start date 15 Oct 2025 and end date 16 Oct 2025\n"
+                + "- list: returns a list of your items so far\n"
+                + "- mark 1: marks the first item in your list "
+                + "(we start counting from 1)\n"
+                + "- unmark 2: unmarks the second item in your list\n"
+                + "- delete 5: deletes the fifth item in your list\n"
+                + "- find book: returns a list of items with descriptions "
+                + "that contain 'book' in them\n"
+                + "- bye: exits the chatbot\n"
+                + "\n"
+                + "For convenience, you can update the details of your items too! "
+                + "Here are a list of commands that allows you to amend "
+                + "the various fields of your items.\n"
+                + "- updateDesc 1 write summary: changes the description "
+                + "of the first item in your list to 'write summary'\n"
+                + "- updateBy 1 2025-10-14: changes the due date of the first item "
+                + "(that is assumed to be a deadline item) to 14 Oct 2025\n"
+                + "- updateFrom 1 2025-10-14: changes the start date of the first item "
+                + "(that is assumed to be a event item) to 14 Oct 2025\n"
+                + "- updateTo 1 2025-10-14: changes the end date of the first item "
+                + "(that is assumed to be a event item) to 14 Oct 2025";
+    }
+
+
     public void showTaskAdded(ListItem task, int totalTasks) {
         System.out.println("Got it. I've added this task:");
         System.out.println("  " + task.getLine());
