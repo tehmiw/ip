@@ -37,6 +37,8 @@ Listie tracks your changes after you say 'bye', letting you can pick up where yo
 
 ## Exhaustive list of commands
 
+Before you start, remember to create an empty folder and put Listie inside!
+
 You could ask Listie directly, but here are sample commands that work for ease of access:
 Do note that formatting must be followed as below and commands are case-sensitive.
 Dates for example are in the format yyyy-mm-dd.
