@@ -21,6 +21,8 @@ Got it. I've added this task:
  [D][] return book (by: OCTOBER 15 2019)    
 Now you have 1 tasks in the list.
 ```
+Notice how D denotes the type of task, deadline. T is for todo and E is for event.
+The [] that comes after shows that the task is not marked. [X] shows that it is marked.
 
 ## Update
 
@@ -36,6 +38,8 @@ Listie tracks your changes after you say 'bye', letting you can pick up where yo
 ## Exhaustive list of commands
 
 You could ask Listie directly, but here are sample commands that work for ease of access:
+Do note that formatting must be followed as below and commands are case-sensitive.
+Dates for example are in the format yyyy-mm-dd.
 
 - todo read book: adds a todo item with description 'read book'
 - deadline return book /by 2025-10-15: adds a deadline item with description 'return book' and due date on 15 Oct 2025
