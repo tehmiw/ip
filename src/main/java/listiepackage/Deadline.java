@@ -1,9 +1,10 @@
-/**
- * The `Deadline` class extends the ListItem class to capture a Deadline task.
- */
 package listiepackage;
 
 import java.time.LocalDate;
+
+/**
+ * The `Deadline` class extends the ListItem class to capture a Deadline task.
+ */
 
 public class Deadline extends ListItem {
     private String by;
@@ -44,6 +45,11 @@ public class Deadline extends ListItem {
     public String getByFormatted() {
         return this.by;
     }
+    /**
+     * Updates the stored by date
+     *
+     * @param by String representing by date
+     */
     public void updateBy(String by) {
         this.by = by;
         this.byLocalDate = LocalDate.parse(this.by);
@@ -51,6 +57,12 @@ public class Deadline extends ListItem {
         this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
                 +  Integer.toString(a.getYear());
     }
+    /**
+     * Constructor for Deadline object
+     *
+     * @param desc String representing description
+     * @param by String representing by date
+     */
     public Deadline(String desc, String by) {
         super(desc);
         this.by = by;
@@ -59,6 +71,13 @@ public class Deadline extends ListItem {
         this.byDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
                 +  Integer.toString(a.getYear());
     }
+    /**
+     * Constructor for Deadline object, used for loading file
+     *
+     * @param desc String representing description
+     * @param done boolean representing whether task is marked
+     * @param by String representing by date
+     */
     public Deadline(String desc, boolean done, String by) {
         super(desc, done);
         this.by = by;

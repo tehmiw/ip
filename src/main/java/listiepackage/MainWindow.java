@@ -42,8 +42,9 @@ public class MainWindow extends AnchorPane {
             listItems = new TaskList();
         }
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        Ui ui = new Ui();
         dialogContainer.getChildren().addAll(
-                DialogBox.getListieDialog("Hello! I'm Listie!\nWhat can I do for you?", listieImage)
+                DialogBox.getListieDialog(ui.getWelcome(), listieImage)
         );
     }
 

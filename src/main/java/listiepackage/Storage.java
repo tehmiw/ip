@@ -1,6 +1,3 @@
-/**
- * The `Storage` class helps manage local storage of data.
- */
 package listiepackage;
 
 import java.io.File;
@@ -9,6 +6,10 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
 
+/**
+ * The `Storage` class helps manage local storage of data.
+ */
+
 public class Storage {
     private String filePath;
     private TaskList listItems = new TaskList();
@@ -16,6 +17,13 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * Updates the file acting as local storage
+     * If saving or file error, IOException is thrown
+     *
+     * @param listItems list of items
+     * @throws IOException If saving or file error.
+     */
     public void updateFile(TaskList listItems) throws IOException {
         this.listItems = listItems;
         FileWriter fw = new FileWriter(filePath);
@@ -52,6 +60,13 @@ public class Storage {
         fw.close();
     }
 
+    /**
+     * Returns list of items from local storage
+     * If file loading error, FileNotFoundException is thrown
+     *
+     * @return list of items
+     * @throws FileNotFoundException If file loading error
+     */
     public TaskList loadItems() throws FileNotFoundException{
         this.listItems.clear();
         File f = new File(this.filePath);

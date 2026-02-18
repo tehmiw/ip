@@ -1,7 +1,8 @@
+package listiepackage;
+
 /**
  * The `ToDo` class extends the ListItem class to capture a ToDo task.
  */
-package listiepackage;
 
 public class ToDo extends ListItem {
     /**

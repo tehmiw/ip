@@ -2,12 +2,22 @@ package listiepackage;
 
 import java.io.IOException;
 
+/**
+ * The `ListieAgent` class to handle the different commands and update the item list.
+ */
+
 public class ListieAgent {
     public static void main(String[] args) {
         System.out.println("Hello!");
     }
     /**
      * Generates a response for the user's chat message.
+     *
+     * @param userInput String representing user input
+     * @param storage Storage to be updated when user input is bye
+     * @param listItems Tasklist containing list of items
+     * @param ui Ui to be called to process user input
+     * @return String representing response
      */
     public String getResponse(String userInput, Storage storage, TaskList listItems, Ui ui) {
         String response = "";

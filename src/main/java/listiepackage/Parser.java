@@ -1,7 +1,8 @@
+package listiepackage;
+
 /**
  * The `Parser` class helps parse user inputs.
  */
-package listiepackage;
 
 public class Parser {
 
@@ -31,6 +32,14 @@ public class Parser {
         return input.substring(firstSpace + 1).trim();
     }
 
+    /**
+     * Returns details of update command
+     * If the no whitespace, EmptyFieldException is thrown
+     *
+     * @param input User input
+     * @return details of update command
+     * @throws EmptyFieldException If no whitespace.
+     */
     public static String getUpdateDetails(String input) throws EmptyFieldException {
         int firstSpace = input.indexOf(" ");
         if (firstSpace == -1) {
@@ -91,6 +100,14 @@ public class Parser {
         return new Event(desc, from, to);
     }
 
+    /**
+     * Returns keyword of command
+     * If the no whitespace, EmptyFieldException is thrown
+     *
+     * @param input User input
+     * @return keyword of command
+     * @throws EmptyFieldException If no whitespace.
+     */
     public static String getKeyword(String input) throws EmptyFieldException {
         int firstSpace = input.indexOf(" ");
         if (firstSpace == -1) {
@@ -99,6 +116,12 @@ public class Parser {
         return input.substring(firstSpace + 1).trim();
     }
 
+    /**
+     * Returns index of command adjusted to start counting from 1 instead of 0
+     *
+     * @param input User input
+     * @return index of command
+     */
     public static int parseIndex(String input) {
         return Integer.parseInt(input.split(" ")[1]) - 1;
     }

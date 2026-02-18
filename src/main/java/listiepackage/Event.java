@@ -1,9 +1,10 @@
-/**
- * The `Event` class extends the ListItem class to capture a Event task.
- */
 package listiepackage;
 
 import java.time.LocalDate;
+
+/**
+ * The `Event` class extends the ListItem class to capture a Event task.
+ */
 
 public class Event extends ListItem {
     private String from;
@@ -67,6 +68,11 @@ public class Event extends ListItem {
 
         return this.to;
     }
+    /**
+     * Updates the from date
+     *
+     * @param from String representing the from date
+     */
     public void updateFrom(String from) {
         this.from = from;
         this.fromLocalDate = LocalDate.parse(this.from);
@@ -74,6 +80,11 @@ public class Event extends ListItem {
         this.fromDate = a.getMonth().name() + " " + Integer.toString(a.getDayOfMonth()) + " "
                 +  Integer.toString(a.getYear());
     }
+    /**
+     * Updates the to date
+     *
+     * @param to String representing the to date
+     */
     public void updateTo(String to) {
         this.to = to;
         this.toLocalDate = LocalDate.parse(this.to);
@@ -81,6 +92,13 @@ public class Event extends ListItem {
         this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " "
                 +  Integer.toString(b.getYear());
     }
+    /**
+     * Constructor for Event object
+     *
+     * @param desc String representing description
+     * @param from String representing from date
+     * @param to String representing to date
+     */
     public Event(String desc, String from, String to) {
         super(desc);
         this.from = from;
@@ -94,6 +112,14 @@ public class Event extends ListItem {
         this.toDate = b.getMonth().name() + " " + Integer.toString(b.getDayOfMonth()) + " "
                 +  Integer.toString(b.getYear());
     }
+    /**
+     * Constructor for Event object, used for loading file
+     *
+     * @param desc String representing description
+     * @param done boolean representing whether item is marked
+     * @param from String representing from date
+     * @param to String representing to date
+     */
     public Event(String desc, boolean done, String from, String to) {
         super(desc, done);
         this.from = from;
