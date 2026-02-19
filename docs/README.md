@@ -117,8 +117,7 @@ of the first item (that is assumed to be a deadline item) to 14 Oct 2025
 
 ## FAQ
 ### Q: How can I transfer my date across devices?
-### A: You just need to navigate to the folder that Listie is in, and copy over the
-Listie.txt file to the same location when setting up
+### A: You just need to navigate to the folder that Listie is in, and copy over the Listie.txt file to the same location
 
 ## Quick TL;DR
 
