@@ -88,6 +88,33 @@ and start date 15 Oct 2025 and end date 16 Oct 2025
 - Format: `bye`
 - Example: `bye`
 
+### Update description: `UpdateDesc`
+- Updates description of item with specified index
+- Format: `updateDesc <index> <description>`
+- Example: `updateDesc 1 write summary` changes the description of the first item in your list to 'write summary'
+
+### Update due date: `UpdateBy`
+- Updates due date of deadline item with specified index
+- Format: `updateDesc <index> <Date>`
+- Date format is `yyyy-mm-dd`
+- Example: `updateBy 1 2025-10-14` changes the due date 
+of the first item (that is assumed to be a deadline item) to 14 Oct 2025
+
+### Update start date: `UpdateFrom`
+- Updates start date of event item with specified index
+- Format: `updateFrom <index> <Date>`
+- Date format is `yyyy-mm-dd`
+- Example: `updateFrom 1 2025-10-14` changes the start date of the first item 
+(that is assumed to be a event item) to 14 Oct 2025
+
+### Update start date: `UpdateTo`
+- Updates end date of event item with specified index
+- Format: `updateFrom <index> <Date>`
+- Date format is `yyyy-mm-dd`
+- Example: `updateTo 1 2025-10-14` changes the end date of the first item 
+(that is assumed to be a event item) to 14 Oct 2025
+
+
 ## FAQ
 ### Q: How can I transfer my date across devices?
 ### A: You just need to navigate to the folder that Listie is in, and copy over the
