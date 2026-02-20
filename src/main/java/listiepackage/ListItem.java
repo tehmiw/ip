@@ -6,7 +6,7 @@ package listiepackage;
 
 public class ListItem {
     private String desc;
-    private boolean done;
+    private boolean isDone;
     /**
      * Constructor for item object
      *
@@ -14,17 +14,17 @@ public class ListItem {
      */
     public ListItem(String desc){
         this.desc = desc;
-        this.done = false;
+        this.isDone = false;
     }
     /**
      * Constructor for item object, used for loading file
      *
      * @param desc String representing description
-     * @param done boolean representing whether task is marked
+     * @param isDone boolean representing whether task is marked
      */
-    public ListItem(String desc, boolean done){
+    public ListItem(String desc, boolean isDone){
         this.desc = desc;
-        this.done = done;
+        this.isDone = isDone;
     }
     /**
      * Returns description of item object
@@ -38,13 +38,13 @@ public class ListItem {
      * Marks item object
      */
     public void mark() {
-        this.done = true;
+        this.isDone = true;
     }
     /**
      * Unmarks item object
      */
     public void unmark() {
-        this.done = false;
+        this.isDone = false;
     }
     /**
      * Returns whether task is marked
@@ -52,7 +52,7 @@ public class ListItem {
      * @return boolean representing whether task is marked
      */
     public boolean isDone() {
-        return this.done;
+        return this.isDone;
     }
     /**
      * Updates the description of the item object

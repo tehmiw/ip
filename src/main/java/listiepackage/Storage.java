@@ -31,8 +31,8 @@ public class Storage {
         for (int i = 0; i < this.listItems.size(); i++) {
             ListItem listItem = this.listItems.get(i);
             char taskType = listItem.getType();
-            boolean taskDone = listItem.isDone();
-            String taskDoneString = taskDone ? "1" : "0";
+            boolean isTaskDone = listItem.isDone();
+            String taskDoneString = isTaskDone ? "1" : "0";
             String currentLine = "";
             String desc = listItem.getDesc();
             switch (taskType) {
@@ -80,32 +80,42 @@ public class Storage {
             String details = toBeAdded.substring(firstLine + 1);
             char taskType = toBeAdded.charAt(0);
             char done = toBeAdded.charAt(1);
-            boolean doneTask = done == '1' ? true : false;
+            boolean isTaskDone = done == '1' ? true : false;
             switch (taskType) {
             case 't':
-                ToDo toDo = new ToDo(details, doneTask);
+                ToDo toDo = new ToDo(details, isTaskDone);
                 this.listItems.add(toDo);
                 break;
             case 'd':
-                int nextLine = details.indexOf("|");
-                String descD = details.substring(0, nextLine);
-                String dateD = details.substring(nextLine + 1);
-                Deadline deadline = new Deadline(descD, doneTask, dateD);
+                Deadline deadline = processDeadline(details, isTaskDone);
                 this.listItems.add(deadline);
                 break;
             case 'e':
-                int nextLineE = details.indexOf("|");
-                String descE = details.substring(0, nextLineE);
-                String dates = details.substring(nextLineE + 1);
-                int lastLine = dates.indexOf("|");
-                String startDate = dates.substring(0, lastLine);
-                String endDate = dates.substring(lastLine + 1);
-                Event event = new Event(descE, doneTask, startDate, endDate);
+                Event event = processEvent(details, isTaskDone);
                 this.listItems.add(event);
                 break;
             }
         }
         return this.listItems;
+    }
+
+    public Deadline processDeadline(String details, boolean isTaskDone) {
+        int nextLine = details.indexOf("|");
+        String descD = details.substring(0, nextLine);
+        String dateD = details.substring(nextLine + 1);
+        Deadline deadline = new Deadline(descD, isTaskDone, dateD);
+        return deadline;
+    }
+
+    public Event processEvent(String details, boolean isTaskDone) {
+        int nextLineE = details.indexOf("|");
+        String descE = details.substring(0, nextLineE);
+        String dates = details.substring(nextLineE + 1);
+        int lastLine = dates.indexOf("|");
+        String startDate = dates.substring(0, lastLine);
+        String endDate = dates.substring(lastLine + 1);
+        Event event = new Event(descE, isTaskDone, startDate, endDate);
+        return event;
     }
 
 }

@@ -26,7 +26,7 @@ public class ToDo extends ListItem {
     public ToDo(String desc) {
         super(desc);
     }
-    public ToDo(String desc, boolean done) {
-        super(desc, done);
+    public ToDo(String desc, boolean isDone) {
+        super(desc, isDone);
     }
 }
